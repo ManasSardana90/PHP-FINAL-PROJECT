@@ -1,53 +1,35 @@
-<?php
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-
-include './CRUD/db.php';
-
-// Fetch latest articles
-$stmt = $pdo->prepare("SELECT * FROM content ORDER BY id DESC LIMIT 5");
-$stmt->execute();
-$articles = $stmt->fetchAll();
-
-include 'header.php';
-?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | My Website</title>
-    <link rel="stylesheet" href="bootstrap.min.css">
-    <link rel="stylesheet" href="./css/styles.css">
+    <!-- Set the title of the webpage -->
+	<title>LOGIN</title>
+    <!-- Link to an external stylesheet to style the page -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+    <!-- Start a form that sends data to "login.php" using the POST method when submitted -->
+    <form action="login.php" method="post">
+        <!-- Form title -->
+     	<h2>LOGIN</h2>
+        
+        <!-- Display error message if it's passed via URL parameters -->
+     	<?php if (isset($_GET['error'])) { ?>
+     		<p class="error"><?php echo $_GET['error']; ?></p>
+     	<?php } ?>
 
-<div class="container mt-4">
-    <h1>Welcome to My Website</h1>
+        <!-- Input field for the user's name -->
+     	<label>User Name</label>
+     	<input type="text" name="uname" placeholder="User Name"><br>
 
-    <?php if (isset($_SESSION['logged_in'])): ?>
-        <p>Hello, <?= $_SESSION['user_name'] ?>! What would you like to do today?</p>
-        <a href="./CRUD/create_article.php" class="btn btn-primary">Create New Article</a>
-        <a href="users.php" class="btn btn-secondary">View Registered Users</a>
-    <?php else: ?>
-        <p>Please <a href="./HOME/register.php">register</a> or log in to access more features.</p>
-    <?php endif; ?>
+        <!-- Input field for the password (of type password to hide characters) -->
+     	<label>Password</label>
+     	<input type="password" name="password" placeholder="Password"><br>
 
-    <h2>Latest Articles</h2>
-    <?php foreach ($articles as $article): ?>
-        <div class="article">
-            <h3><?= $article['title'] ?></h3>
-            <p><?= substr($article['body'], 0, 200) ?>...</p>
-            <a href="view_article.php?id=<?= $article['id'] ?>">Read More</a>
-        </div>
-    <?php endforeach; ?>
-</div>
+        <!-- Submit button to submit the form -->
+     	<button type="submit">Login</button>
 
-<?php include 'footer.php'; ?>
-
+        <!-- Link to the signup page for users who don't have an account -->
+        <a href="signup.php" class="ca">Create an account</a>
+    </form>
 </body>
 </html>

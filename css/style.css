@@ -1,0 +1,103 @@
+/* Setting up a cool blue background, centering content vertically and horizontally */
+body {
+	background: #1690A7;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	flex-direction: column;
+}
+
+/* Making sure everything uses this neat font and has consistent box sizing */
+*{
+	font-family: sans-serif;
+	box-sizing: border-box;
+}
+
+/* Styling the form: medium size, white background, slight rounding of corners */
+form {
+	width: 500px;
+	border: 2px solid #ccc;
+	padding: 30px;
+	background: #fff;
+	border-radius: 15px;
+}
+
+/* Center-aligning the form title and giving it some space below */
+h2 {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+/* Inputs: full width with some space around, and a classic rounded border */
+input {
+	display: block;
+	border: 2px solid #ccc;
+	width: 95%;
+	padding: 10px;
+	margin: 10px auto;
+	border-radius: 5px;
+}
+
+/* Labels with a subtle color, slightly bigger font */
+label {
+	color: #888;
+	font-size: 18px;
+	padding: 10px;
+}
+
+/* Dark button on the right of the form */
+button {
+	float: right;
+	background: #555;
+	padding: 10px 15px;
+	color: #fff;
+	border-radius: 5px;
+	margin-right: 10px;
+	border: none;
+}
+
+/* Button gets a bit transparent when hovered over */
+button:hover{
+	opacity: .7;
+}
+
+/* Red background for error messages, with spacing */
+.error {
+   background: #F2DEDE;
+   color: #A94442;
+   padding: 10px;
+   width: 95%;
+   border-radius: 5px;
+   margin: 20px auto;
+}
+
+/* Green background for success messages, with spacing */
+.success {
+   background: #D4EDDA;
+   color: #40754C;
+   padding: 10px;
+   width: 95%;
+   border-radius: 5px;
+   margin: 20px auto;
+}
+
+/* Main title of the page, centered and white */
+h1 {
+	text-align: center;
+	color: #fff;
+}
+
+/* Small text link, probably "Create Account" or something similar */
+.ca {
+	font-size: 14px;
+	display: inline-block;
+	padding: 10px;
+	text-decoration: none;
+	color: #444;
+}
+
+/* Make the link a bit more interactive with an underline on hover */
+.ca:hover {
+	text-decoration: underline;
+} 
