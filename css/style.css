@@ -1,6 +1,6 @@
-/* Setting up a cool blue background, centering content vertically and horizontally */
+/* Setting up a background, centering content vertically and horizontally */
 body {
-	background: #1690A7;
+	background: #BADA55;
 	display: flex;
 	justify-content: center;
 	align-items: center;
